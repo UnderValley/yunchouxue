@@ -8,10 +8,10 @@ namespace {
 #define MAXTASK 100
 }
 
-class RecPos
+class sendPos
 {
 public:
-    RecPos();
+    sendPos();
     void init(DES des);
     std::vector<Task> taskPool;
     int taskNum;

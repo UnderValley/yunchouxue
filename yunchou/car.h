@@ -1,6 +1,8 @@
 #ifndef CAR_H
 #define CAR_H
 #include "worldModule.h"
+#include <vector>
+#include "task.h"
 
 class Car
 {
@@ -13,6 +15,8 @@ public:
     const int chareTime = 10; // 充电时间
     DES location;
     void init(DES local);
+    std::vector<Task> bag;
+    void download();
 };
 
 #endif // CAR_H

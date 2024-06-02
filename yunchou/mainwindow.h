@@ -20,13 +20,13 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    RecPos recPosA;
-    RecPos recPosB;
-    RecPos recPosC;
-    RecPos recPosD;
-    class pos sendPosE;
-    class pos sendPosF;
-    class pos sendPosG;
+    sendPos sendPosA;
+    sendPos sendPosB;
+    sendPos sendPosC;
+    class pos recPosD;
+    class pos recPosE;
+    class pos recPosF;
+    class pos recPosG;
     std::vector<Car> cars;
     void initPos();
 

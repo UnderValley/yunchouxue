@@ -15,3 +15,18 @@ void Task::init(DES des)
     i = i % 4 + 1;
     destination = (DES) i;
 }
+
+void Task::finish()
+{
+    _settled = true;
+}
+
+void Task::carry()
+{
+    _carried = true;
+}
+
+void Task::download()
+{
+    _carried = false;
+}

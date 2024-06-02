@@ -3,12 +3,12 @@
 #include <time.h>
 #include "pos.h"
 
-RecPos::RecPos()
+sendPos::sendPos()
 {
     neighbnum = -1;
 }
 
-void RecPos::init(DES des)
+void sendPos::init(DES des)
 {
     _des = des;
     pos tmp(des);
@@ -17,13 +17,14 @@ void RecPos::init(DES des)
     taskNum = 0;
 }
 
-void RecPos::regenerate()
+void sendPos::regenerate()
 {
     taskPool.clear();
     taskNum = rand() % (MAXTASK - 10) + 10;
     Task tmpTask;
     for (int i = 0; i <= taskNum; i++) {
         tmpTask.init(_des);
+        tmpTask.startPos = _des;
         taskPool.push_back(tmpTask);
     }
 }

@@ -49,6 +49,8 @@ else()
             recpos.h recpos.cpp
             pos.h pos.cpp
             car.h car.cpp
+            posmodule.h posmodule.cpp
+
         )
     endif()
 
