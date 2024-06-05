@@ -27,6 +27,7 @@ public:
     class pos recPosE;
     class pos recPosF;
     class pos recPosG;
+    class pos recPosH;
     class pos recPosI;
     std::vector<Car> cars;
     void initPos();

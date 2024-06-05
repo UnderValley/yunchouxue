@@ -368,7 +368,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="output4_2">
+            <widget class="QLabel" name="output5">
              <property name="text">
               <string/>
              </property>
@@ -386,7 +386,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="output4_3">
+            <widget class="QLabel" name="output6">
              <property name="text">
               <string/>
              </property>

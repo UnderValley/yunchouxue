@@ -33,6 +33,7 @@ void MainWindow::initPos()
     recPosE.init(E);
     recPosF.init(F);
     recPosG.init(G);
+    recPosH.init(H);
     recPosI.init(I);
     updateTasknum();
 }
@@ -64,6 +65,7 @@ void MainWindow::loadConfig()
 
 void MainWindow::computeAdvancedAlgoTime()
 {
+//     ui->output1->setText(QString("%1").arg(i).toLatin1()); output123456 outputtotal
     ;
 }
 

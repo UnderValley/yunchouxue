@@ -28,7 +28,7 @@ void Task::init(DES des)
         break;
     }
     case E: {
-        secondDes = rand() % 6; // 丹青不知道几栋
+        secondDes = rand() % 10; // 丹青10栋
         break;
     }
     case F: {
@@ -44,7 +44,7 @@ void Task::init(DES des)
         break;
     }
     case G: {
-        secondDes = rand() % 10; // 澄月不知道
+        secondDes = rand() % 3; // 澄月不知道
         break;
     }
     default:
