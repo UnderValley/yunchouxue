@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>240</y>
+      <y>320</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>230</y>
+      <y>310</y>
       <width>121</width>
       <height>25</height>
      </rect>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>300</y>
+      <y>380</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>300</y>
+      <y>380</y>
       <width>121</width>
       <height>25</height>
      </rect>
@@ -70,7 +70,7 @@
     <property name="geometry">
      <rect>
       <x>370</x>
-      <y>240</y>
+      <y>320</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -85,7 +85,7 @@
       <x>171</x>
       <y>40</y>
       <width>496</width>
-      <height>150</height>
+      <height>210</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -147,24 +147,6 @@
            </item>
            <item>
             <widget class="QLabel" name="recC">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
-           <item>
-            <widget class="QLabel" name="label_10">
-             <property name="text">
-              <string>站点4：</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="recD">
              <property name="text">
               <string/>
              </property>
@@ -376,11 +358,60 @@
            </item>
           </layout>
          </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_15">
+           <item>
+            <widget class="QLabel" name="label_16">
+             <property name="text">
+              <string>站点5时间：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="output4_2">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_16">
+           <item>
+            <widget class="QLabel" name="label_17">
+             <property name="text">
+              <string>站点6时间：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="output4_3">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
         </layout>
        </item>
       </layout>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>380</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>读取任务</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -405,7 +436,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>174</x>
-     <y>278</y>
+     <y>342</y>
     </hint>
     <hint type="destinationlabel">
      <x>76</x>
@@ -421,7 +452,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>698</x>
-     <y>262</y>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
      <x>769</x>
@@ -437,7 +468,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>695</x>
-     <y>330</y>
+     <y>402</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -453,11 +484,43 @@
    <hints>
     <hint type="sourcelabel">
      <x>388</x>
-     <y>280</y>
+     <y>342</y>
     </hint>
     <hint type="destinationlabel">
      <x>265</x>
      <y>453</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>saveTask()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>230</x>
+     <y>414</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>178</x>
+     <y>560</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>loadTask()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>324</x>
+     <y>416</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>372</x>
+     <y>560</y>
     </hint>
    </hints>
   </connection>
@@ -467,5 +530,7 @@
   <slot>loadConfig()</slot>
   <slot>computeOriginAlgoTime()</slot>
   <slot>computeAdvancedAlgoTime()</slot>
+  <slot>saveTask()</slot>
+  <slot>loadTask()</slot>
  </slots>
 </ui>

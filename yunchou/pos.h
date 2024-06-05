@@ -12,6 +12,7 @@ public:
     pos(int location);
     std::vector<std::pair<DES, int>> neighbs;
     int neighbnum;
+    double* sonDist;
     void init(DES des);
 };
 

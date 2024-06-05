@@ -4,7 +4,7 @@
 #include <QMainWindow>
 //#include "task.h"
 #include "vector"
-#include "recpos.h"
+#include "sendpos.h"
 #include "worldModule.h"
 #include "car.h"
 #include "pos.h"
@@ -27,6 +27,7 @@ public:
     class pos recPosE;
     class pos recPosF;
     class pos recPosG;
+    class pos recPosI;
     std::vector<Car> cars;
     void initPos();
 
@@ -39,5 +40,7 @@ public  slots:
     void loadConfig();
     void computeOriginAlgoTime();
     void computeAdvancedAlgoTime();
+    void saveTask();
+    void loadTask();
 };
 #endif // MAINWINDOW_H

@@ -1,11 +1,11 @@
-#ifndef RECPOS_H
-#define RECPOS_H
+#ifndef SENDPOS_H
+#define SENDPOS_H
 #include <vector>
 #include "task.h"
 #include "worldModule.h"
 
 namespace {
-#define MAXTASK 100
+#define MAXTASK 30
 }
 
 class sendPos
@@ -20,7 +20,7 @@ public:
     int neighbnum;
 
 private:
-    DES _des;
+    DES _location;
 };
 
-#endif // RECPOS_H
+#endif // SENDPOS_H

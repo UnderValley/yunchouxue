@@ -46,10 +46,11 @@ else()
             map.h
             task.h task.cpp
             worldModule.h
-            recpos.h recpos.cpp
+            sendpos.h sendpos.cpp
             pos.h pos.cpp
             car.h car.cpp
             posmodule.h posmodule.cpp
+            worldModule.cpp
 
         )
     endif()
