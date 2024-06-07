@@ -40,7 +40,7 @@ void Task::init(DES des)
         break;
     }
     case H: {
-        secondDes = rand() % 10; // 玉湖不知道
+        secondDes = rand() % 7; // 玉湖不知道
         break;
     }
     case G: {
