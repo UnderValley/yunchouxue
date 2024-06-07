@@ -6,6 +6,7 @@
 
 namespace {
 #define MAXTASK 30
+#define MAXOFFSETHG 10
 }
 
 class sendPos
