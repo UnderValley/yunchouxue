@@ -5,7 +5,7 @@
 Task::Task()
 {
     volume = 0;
-//    destination = A;
+    //    destination = A;
 }
 
 Task::Task(DES des, int secDes, int vol, DES start)
@@ -18,33 +18,33 @@ Task::Task(DES des, int secDes, int vol, DES start)
 
 void Task::init(DES des)
 {
-    volume = rand() % MAXVOL + 1;
-    int i =(rand() % 5 + 1) * (rand() % 100 > 97 ? 1 : 0); // 2% 的概率变成较远目的地
+    volume =  10;
+    int i = (rand() % 5 + 1) * (rand() % 100 > 97 ? 1 : 0); // 2% �ĸ��ʱ�ɽ�ԶĿ�ĵ�
     i = (des - 4 + i) % 6 + 4;
-    destination = (DES) i;
+    destination = (DES)i;
     switch (destination) {
     case D: {
-        secondDes = rand() % 6; // 蓝田6栋
+        secondDes = rand() % 6; // ����6��
         break;
     }
     case E: {
-        secondDes = rand() % 10; // 丹青10栋
+        secondDes = rand() % 10; // ����10��
         break;
     }
     case F: {
-        secondDes = rand() % 10; // 云峰10
+        secondDes = rand() % 10; // �Ʒ�10
         break;
     }
     case I: {
-        secondDes = rand() % 10; // 银泉不知道
+        secondDes = rand() % 8; // ��Ȫ��֪��
         break;
     }
     case H: {
-        secondDes = rand() % 7; // 玉湖不知道
+        secondDes = rand() % 7; // �����֪��
         break;
     }
     case G: {
-        secondDes = rand() % 3; // 澄月不知道
+        secondDes = rand() % 9; // ���²�֪��
         break;
     }
     default:
@@ -65,12 +65,12 @@ void Task::finish()
     _settled = true;
 }
 
-void Task::carry()
+void Task::reset()
 {
-    _carried = true;
+    _settled = false;
 }
 
-void Task::download()
+bool Task::check()
 {
-    _carried = false;
+    return _settled;
 }

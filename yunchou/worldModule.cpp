@@ -1,8 +1,9 @@
+/*
+ * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @Date: 2024-06-07 20:20:48
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2024-06-08 10:47:12
+ * @FilePath: \yunchouxue\yunchou\worldModule.cpp
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 #include "worldModule.h"
-
-extern double sonDistD[] = {60, 66, 50, 50, 66, 60}; // 蓝田
-extern double sonDistE[] = {57, 35, 45, 72, 56, 83, 61, 64, 74, 85}; // 丹青
-extern double sonDistF[] = {35, 88, 83, 88, 35, 35, 88, 83, 88, 35}; // 云峰
-extern double sonDistG[] = {154, 156, 54}; // 澄月
-extern double sonDistH[] = {80, 107, 98, 123, 89, 61, 120}; // 玉湖
-extern double sonDistI[] = {78, 194, 218, 130, 121, 63, 165}; // 银泉

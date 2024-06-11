@@ -51,7 +51,8 @@ else()
             car.h car.cpp
             posmodule.h posmodule.cpp
             worldModule.cpp
-
+#            myDT.h
+#            search.cpp
         )
     endif()
 

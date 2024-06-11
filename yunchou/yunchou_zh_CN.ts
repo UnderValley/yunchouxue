@@ -64,22 +64,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="348"/>
-        <source>站点4时间：</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="366"/>
-        <source>站点5时间：</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="384"/>
-        <source>站点6时间：</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="413"/>
+        <location filename="mainwindow.ui" line="359"/>
         <source>读取任务</source>
         <translation type="unfinished"></translation>
     </message>

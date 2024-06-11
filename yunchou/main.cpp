@@ -2,6 +2,8 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <qdebug.h>
+
 
 int main(int argc, char *argv[])
 {
@@ -19,5 +21,6 @@ int main(int argc, char *argv[])
     }
     MainWindow w;
     w.show();
+    qDebug()<<"1234"<<endl;
     return a.exec();
 }

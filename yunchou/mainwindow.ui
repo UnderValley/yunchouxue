@@ -85,7 +85,7 @@
       <x>171</x>
       <y>40</y>
       <width>496</width>
-      <height>210</height>
+      <height>217</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -340,60 +340,6 @@
            </item>
           </layout>
          </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_9">
-           <item>
-            <widget class="QLabel" name="label_15">
-             <property name="text">
-              <string>站点4时间：</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="output4">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_15">
-           <item>
-            <widget class="QLabel" name="label_16">
-             <property name="text">
-              <string>站点5时间：</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="output5">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_16">
-           <item>
-            <widget class="QLabel" name="label_17">
-             <property name="text">
-              <string>站点6时间：</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="output6">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
         </layout>
        </item>
       </layout>
@@ -420,7 +366,7 @@
      <x>0</x>
      <y>0</y>
      <width>876</width>
-     <height>22</height>
+     <height>28</height>
     </rect>
    </property>
   </widget>
