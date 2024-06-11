@@ -17,13 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
     time_t t;
     srand((unsigned) time(&t));
     initPos();
-//    ui->recA->setText("8");
-//    ui->recB->setText("27");
-//    ui->recC->setText("16");
-//    ui->output1->setNum(1716/2);
-//    ui->output2->setNum(3582/2);
-//    ui->output3->setNum(4001/2);
-//    ui->outputtotal->setNum(1716/2+3582/2+4001/2);
 }
 
 MainWindow::~MainWindow()
@@ -83,285 +76,225 @@ void MainWindow::computeAdvancedAlgoTime()
 void MainWindow::computeOriginAlgoTime()
 {
     DES des_first;
-        std::vector<Task> tasks_first;  // the tasks of the xueyuan
-        std::vector<Task> tasks_second; // teh tasks of the building
+    std::vector<Task> tasks_first;  // 第一个任务集
+    std::vector<Task> tasks_second; // 第二个任务集
 
-//        initPos();
-//        generateTask();
-//        loadConfig();
+    // 初始化任务数量
+    cout << "A:" << sendPosA.taskPool.size() << "   " << sendPosA.taskNum << endl;
+    cout << "B:" << sendPosB.taskPool.size() << "   " << sendPosB.taskNum << endl;
+    cout << "C:" << sendPosC.taskPool.size() << "   " << sendPosC.taskNum << endl;
 
-        cout << "A:" << sendPosA.taskPool.size() << "   " << sendPosA.taskNum << endl;
-        cout << "B:" << sendPosB.taskPool.size() << "   " << sendPosB.taskNum << endl;
-        cout << "C:" << sendPosC.taskPool.size() << "   " << sendPosC.taskNum << endl;
-
-        // for (int i = 0; i < sendPosA.taskPool.size(); i++)
-        // {
-        //     cout << "startpos: " << sendPosA.taskPool[i].startPos << "  des_first: " << sendPosA.taskPool[i].destination << "  des_second: " << sendPosA.taskPool[i].secondDes << "  volume: " << sendPosA.taskPool[i].volume << endl;
-        // }
-
-        int time_a;
-        int time_b;
-        int time_c;
-        // find for A
-        while (1)
+    int time_a;
+    int time_b;
+    int time_c;
+    
+    // 处理位置A的任务
+    while (1)
+    {
+        vector<int> car_A;
+        for(int i=0; i<carNumA; i++) car_A.push_back(i);
+        int car_num;
+        des_first = sendPosA.find_nearest_neighbour(); // 查找最近邻居
+        if (des_first == A)
+            break;
+        sendPosA.find_task_first(tasks_first, des_first);
+        
+        switch (des_first)
         {
-            vector<int> car_A;
-            for(int i=0;i<carNumA;i++) car_A.push_back(i);
-            int car_num;
-            des_first = sendPosA.find_nearest_neighbour(); // find the xueyuan to deliver
-            if (des_first == A)
-                break;
-            sendPosA.find_task_first(tasks_first, des_first);
-            // debug
-            // for(int i=0;i<tasks_first.size();i++){
-            //      cout<<tasks_first[i].startPos<<"-"<<tasks_first[i].destination<<"-"<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-            //  }
-            switch (des_first)
+        case G:
+            car_num = min_car(car_A);
+            deliver_G(tasks_first, car_num, 0);
+            car_num = min_car(car_A);
+            deliver_G(tasks_first, car_num, 0);
+            while (1)
             {
-            case G:
                 car_num = min_car(car_A);
                 deliver_G(tasks_first, car_num, 0);
-                // debug
-                //  for(int i=0;i<tasks_first.size();i++){
-                //      cout<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-                //  }
-                car_num = min_car(car_A);
-                deliver_G(tasks_first, car_num, 0);
-                while (1)
-                {
-                    car_num = min_car(car_A);
-                    deliver_G(tasks_first, car_num, 0);
-                    if (!sendPosA.check_task(G))
-                        break;
-                }
-                break;
-            case H:
+                if (!sendPosA.check_task(G))
+                    break;
+            }
+            break;
+        case H:
+            car_num = min_car(car_A);
+            deliver_H(tasks_first, car_num, 0);
+            deliver_H(tasks_first, car_num, 0);
+            while (1)
+            {
                 car_num = min_car(car_A);
                 deliver_H(tasks_first, car_num, 0);
-                // debug
-                //  for(int i=0;i<tasks_first.size();i++){
-                //      cout<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-                //  }
-                deliver_H(tasks_first, car_num, 0);
-                while (1)
-                {
-                    car_num = min_car(car_A);
-                    deliver_H(tasks_first, car_num, 0);
-                    if (!sendPosA.check_task(H))
-                        break;
-                }
-                break;
-            case I:
+                if (!sendPosA.check_task(H))
+                    break;
+            }
+            break;
+        case I:
+            car_num = min_car(car_A);
+            deliver_I(tasks_first, car_num, 0);
+            car_num = min_car(car_A);
+            deliver_I(tasks_first, car_num, 0);
+            while (1)
+            {
                 car_num = min_car(car_A);
                 deliver_I(tasks_first, car_num, 0);
-                // debug
-                //  for(int i=0;i<tasks_first.size();i++){
-                //      cout<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-                //  }
-                car_num = min_car(car_A);
-                deliver_I(tasks_first, car_num, 0);
-                while (1)
-                {
-                    car_num = min_car(car_A);
-                    deliver_I(tasks_first, car_num, 0);
-                    if (!sendPosA.check_task(I))
-                        break;
-                }
-                break;
+                if (!sendPosA.check_task(I))
+                    break;
             }
-            //  for (int i = 0; i < car_A.size(); i++) {
-            //     cout << "cars[" << car_A[i] << "].time_sum: " << cars[car_A[i]].time_sum << endl;
-            // }
+            break;
         }
-        int max = cars[0].time_sum;
-        for (int i = 0; i < carNumA; i++)
+    }
+    
+    // 查找最大时间
+    int max = cars[0].time_sum;
+    for (int i = 0; i < carNumA; i++)
+    {
+        cout << "cars[" << i << "].time_sum: " << cars[i].time_sum << endl;
+        if (cars[i].time_sum > max) max = cars[i].time_sum;
+    }
+    ui->output1->setNum(max);
+    
+    // 处理位置B的任务
+    while (1)
+    {
+        vector<int> car_B;
+        for(int i=carNumA; i<carNumA+carNumB; i++) car_B.push_back(i);
+        int car_num;
+        des_first = sendPosB.find_nearest_neighbour();
+        if (des_first == B)
+            break;
+        sendPosB.find_task_first(tasks_first, des_first);
+        
+        switch (des_first)
         {
-            cout << "cars[" << i << "].time_sum: " << cars[i].time_sum << endl;
-            if (cars[i].time_sum > max) max = cars[i].time_sum;
-        }
-        ui->output1->setNum(max);
-        // find for B(baisha)
-        while (1)
-        {
-            vector<int> car_B;
-            for(int i=carNumA;i<carNumA+carNumB;i++) car_B.push_back(i);
-            int car_num;
-            des_first = sendPosB.find_nearest_neighbour(); // find the xueyuan to deliver
-            if (des_first == B)
-                break;
-            sendPosB.find_task_first(tasks_first, des_first);
-            // debug
-            //  for(int i=0;i<tasks_first.size();i++){
-            //      cout<<tasks_first[i].startPos<<"-"<<tasks_first[i].destination<<"-"<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-            //  }
-            switch (des_first)
+        case D:
+            car_num = min_car(car_B);
+            deliver_D(tasks_first, car_num, 1);
+            car_num = min_car(car_B);
+            deliver_D(tasks_first, car_num, 1);
+            while (1)
             {
-            case D:
                 car_num = min_car(car_B);
                 deliver_D(tasks_first, car_num, 1);
-                // debug
-                //   for(int i=0;i<tasks_first.size();i++){
-                //       cout<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-                //   }
-                car_num = min_car(car_B);
-                deliver_D(tasks_first, car_num, 1);
-                while (1)
-                {
-                    car_num = min_car(car_B);
-                    deliver_D(tasks_first, car_num, 1);
-                    if (!sendPosB.check_task(D))
-                        break;
-                }
-                break;
-            case E:
-                car_num = min_car(car_B);
-                deliver_E(tasks_first, car_num, 1);
-                // debug
-                //  for(int i=0;i<tasks_first.size();i++){
-                //      cout<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-                //  }
-                car_num = min_car(car_B);
-                deliver_E(tasks_first, car_num, 1);
-                while (1)
-                {
-                    car_num = min_car(car_B);
-                    deliver_E(tasks_first, car_num, 1);
-                    if (!sendPosB.check_task(E))
-                        break;
-                }
-                break;
-            case F:
-                car_num = min_car(car_B);
-                deliver_F(tasks_first, car_num, 1);
-                // debug
-                //  for(int i=0;i<tasks_first.size();i++){
-                //      cout<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-                //  }
-                car_num = min_car(car_B);
-                deliver_F(tasks_first, car_num, 1);
-                while (1)
-                {
-                    car_num = min_car(car_B);
-                    deliver_F(tasks_first, car_num, 1);
-                    if (!sendPosB.check_task(F))
-                        break;
-                }
-                break;
-            case G:
-                car_num = min_car(car_B);
-                deliver_G(tasks_first, car_num, 1);
-                // debug
-                //  for(int i=0;i<tasks_first.size();i++){
-                //      cout<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-                //  }
-                car_num = min_car(car_B);
-                deliver_G(tasks_first, car_num, 1);
-                while (1)
-                {
-                    car_num = min_car(car_B);
-                    deliver_G(tasks_first, car_num, 1);
-                    if (!sendPosB.check_task(G))
-                        break;
-                }
-                break;
-            case H:
-                car_num = min_car(car_B);
-                deliver_H(tasks_first, car_num, 1);
-                // debug
-                //  for(int i=0;i<tasks_first.size();i++){
-                //      cout<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-                //  }
-                deliver_H(tasks_first, car_num, 1);
-                while (1)
-                {
-                    car_num = min_car(car_B);
-                    deliver_H(tasks_first, car_num, 1);
-                    if (!sendPosB.check_task(H))
-                        break;
-                }
-                break;
+                if (!sendPosB.check_task(D))
+                    break;
             }
-            //   for (int i = 0; i < car_B.size(); i++) {
-            //       cout << "cars[" << car_B[i] << "].time_sum: " << cars[car_B[i]].time_sum << endl;
-            //   }
-        }
-        max = cars[carNumA].time_sum;
-        for (int i = carNumA; i < carNumA + carNumB; i++)
-        {
-            cout << "cars[" << i << "].time_sum: " << cars[i].time_sum << endl;
-            if (cars[i].time_sum > max) max = cars[i].time_sum;
-        }
-        ui->output2->setNum(max);
-        // find for C
-        while (1)
-        {
-            vector<int> car_C;
-            for(int i=carNumA + carNumB;i<carNumA + carNumB + carNumC;i++) car_C.push_back(i);
-            int car_num;
-            des_first = sendPosC.find_nearest_neighbour(); // find the xueyuan to deliver
-            if (des_first == C)
-                break;
-            sendPosC.find_task_first(tasks_first, des_first);
-            // debug
-            //        for(int i=0;i<tasks_first.size();i++){
-            //            cout<<tasks_first[i].startPos<<"-"<<tasks_first[i].destination<<"-"<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-            //        }
-            switch (des_first)
+            break;
+        case E:
+            car_num = min_car(car_B);
+            deliver_E(tasks_first, car_num, 1);
+            car_num = min_car(car_B);
+            deliver_E(tasks_first, car_num, 1);
+            while (1)
             {
-            case G:
-                car_num = min_car(car_C);
-                deliver_G(tasks_first, car_num, 2);
-                // debug
-                //  for(int i=0;i<tasks_first.size();i++){
-                //      cout<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-                //  }
-                car_num = min_car(car_C);
-                deliver_G(tasks_first, car_num, 2);
-                while (1)
-                {
-                    car_num = min_car(car_C);
-                    deliver_G(tasks_first, car_num, 2);
-                    if (!sendPosC.check_task(G))
-                        break;
-                }
-                break;
-            case H:
-                car_num = min_car(car_C);
-                deliver_H(tasks_first, car_num, 2);
-                // debug
-                //  for(int i=0;i<tasks_first.size();i++){
-                //      cout<<tasks_first[i].secondDes<<"-"<<tasks_first[i].volume<<"-"<<tasks_first[i].check()<<endl;
-                //  }
-                deliver_H(tasks_first, car_num, 2);
-                while (1)
-                {
-                    car_num = min_car(car_C);
-                    deliver_H(tasks_first, car_num, 2);
-                    if (!sendPosC.check_task(H))
-                        break;
-                }
-                break;
+                car_num = min_car(car_B);
+                deliver_E(tasks_first, car_num, 1);
+                if (!sendPosB.check_task(E))
+                    break;
             }
-            //        for(int i=0;i<car_C.size();i++){
-            //            cout<<"cars["<<car_C[i]<<"].time_sum: "<<cars[car_C[i]].time_sum<<endl;
-            //        }
+            break;
+        case F:
+            car_num = min_car(car_B);
+            deliver_F(tasks_first, car_num, 1);
+            car_num = min_car(car_B);
+            deliver_F(tasks_first, car_num, 1);
+            while (1)
+            {
+                car_num = min_car(car_B);
+                deliver_F(tasks_first, car_num, 1);
+                if (!sendPosB.check_task(F))
+                    break;
+            }
+            break;
+        case G:
+            car_num = min_car(car_B);
+            deliver_G(tasks_first, car_num, 1);
+            car_num = min_car(car_B);
+            deliver_G(tasks_first, car_num, 1);
+            while (1)
+            {
+                car_num = min_car(car_B);
+                deliver_G(tasks_first, car_num, 1);
+                if (!sendPosB.check_task(G))
+                    break;
+            }
+            break;
+        case H:
+            car_num = min_car(car_B);
+            deliver_H(tasks_first, car_num, 1);
+            deliver_H(tasks_first, car_num, 1);
+            while (1)
+            {
+                car_num = min_car(car_B);
+                deliver_H(tasks_first, car_num, 1);
+                if (!sendPosB.check_task(H))
+                    break;
+            }
+            break;
         }
-        max = cars[carNumA + carNumB].time_sum;
-        for (int i = carNumA + carNumB; i < carNumA + carNumB + carNumC; i++)
+    }
+    
+    // 查找最大时间
+    max = cars[carNumA].time_sum;
+    for (int i = carNumA; i < carNumA + carNumB; i++)
+    {
+        cout << "cars[" << i << "].time_sum: " << cars[i].time_sum << endl;
+        if (cars[i].time_sum > max) max = cars[i].time_sum;
+    }
+    ui->output2->setNum(max);
+    
+    // 处理位置C的任务
+    while (1)
+    {
+        vector<int> car_C;
+        for(int i=carNumA + carNumB; i<carNumA + carNumB + carNumC; i++) car_C.push_back(i);
+        int car_num;
+        des_first = sendPosC.find_nearest_neighbour();
+        if (des_first == C)
+            break;
+        sendPosC.find_task_first(tasks_first, des_first);
+        
+        switch (des_first)
         {
-            cout << "cars[" << i << "].time_sum: " << cars[i].time_sum << endl;
-            if (cars[i].time_sum > max) max = cars[i].time_sum;
+        case G:
+            car_num = min_car(car_C);
+            deliver_G(tasks_first, car_num, 2);
+            car_num = min_car(car_C);
+            deliver_G(tasks_first, car_num, 2);
+            while (1)
+            {
+                car_num = min_car(car_C);
+                deliver_G(tasks_first, car_num, 2);
+                if (!sendPosC.check_task(G))
+                    break;
+            }
+            break;
+        case H:
+            car_num = min_car(car_C);
+            deliver_H(tasks_first, car_num, 2);
+            deliver_H(tasks_first, car_num, 2);
+            while (1)
+            {
+                car_num = min_car(car_C);
+                deliver_H(tasks_first, car_num, 2);
+                if (!sendPosC.check_task(H))
+                    break;
+            }
+            break;
         }
-        ui->output3->setNum(max);
-        ui->outputtotal->setNum(ui->output3->text().toInt() >
+    }
+    
+    // 查找最大时间
+    max = cars[carNumA + carNumB].time_sum;
+    for (int i = carNumA + carNumB; i < carNumA + carNumB + carNumC; i++)
+    {
+        cout << "cars[" << i << "].time_sum: " << cars[i].time_sum << endl;
+        if (cars[i].time_sum > max) max = cars[i].time_sum;
+    }
+    ui->output3->setNum(max);
+    
+    ui->outputtotal->setNum(ui->output3->text().toInt() >
                     (ui->output1->text().toInt() > ui->output2->text().toInt() ? ui->output1->text().toInt() : ui->output2->text().toInt()) ?
                      ui->output3->text().toInt()   :  (ui->output1->text().toInt() > ui->output2->text().toInt() ? ui->output1->text().toInt() : ui->output2->text().toInt()));
-        cout << "success" << endl;
-
-
-        return ;
+        
 }
-
 void MainWindow::saveTask()
 {
     QSettings *configIniWrite = new QSettings(TO_FILE_PATH.c_str(), QSettings::IniFormat);
@@ -386,11 +319,11 @@ void MainWindow::saveTask()
     }
     delete configIniWrite;
 }
-
+// 从文件加载任务
 void MainWindow::loadTask()
 {
     QString key = "";
-    QSettings *read_ini = new QSettings(QFileDialog::getOpenFileName(this,"打开文件","../"), QSettings::IniFormat); // 不打开文件可能存在bug
+    QSettings *read_ini = new QSettings(QFileDialog::getOpenFileName(this,"打开文件","../"), QSettings::IniFormat);
     sendPosA.taskPool.clear();
     sendPosB.taskPool.clear();
     sendPosC.taskPool.clear();
@@ -436,10 +369,10 @@ void MainWindow::loadTask()
         tmp.setTask(tmpDes, tmpSecDes, tmpVol, tmpStartDes);
         sendPosC.taskPool.push_back(tmp);
     }
-    delete read_ini;
-    updateTasknum();
+    updateTasknum(); // 更新任务数量显示
 }
 
+// 更新任务数量
 void MainWindow::updateTasknum()
 {
     ui->recA->setText(QString("%1").arg(sendPosA.taskNum).toLatin1());
@@ -494,7 +427,7 @@ void MainWindow::package_load(std::vector<Task> &tasks_first, std::vector<Task> 
     change_taskpool(tasks_second);
     return;
 }
-
+// 任务递送函数示例（类似的函数有 deliver_E, deliver_F, 等）
 void MainWindow::deliver_D(std::vector<Task> &tasks_first, int car_num, int start_pos)
 {
     int building;
@@ -649,7 +582,7 @@ void MainWindow::deliver_I(std::vector<Task> &tasks_first, int car_num, int star
     cars[car_num].time_sum += (recPosI.neighbs[start_pos].second + recPosI.sonDist[building]) / cars[car_num].speed;
     cars[car_num].volume = CAR_VOLUME;
 }
-
+// 查找最小时间的车辆编号
 int MainWindow::min_car(vector<int> car_num)
 {
     int min = car_num[0];
@@ -662,18 +595,6 @@ int MainWindow::min_car(vector<int> car_num)
     }
     return min;
 }
-
-/*
-int min_car(int car_num_start,int car_num_end){
-    int min=car_num_start;
-    for(int i=car_num_start;i<car_num_end;i++){
-        if(cars[i].time_sum<cars[min].time_sum){
-            min=i;
-        }
-    }
-    return min;
-}
-*/
 
 void MainWindow::change_taskpool(std::vector<Task> &tasks){
     switch (tasks[0].startPos)
