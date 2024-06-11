@@ -15,12 +15,8 @@ public:
     int volume = 50;
     int time_sum = 0;
     int speed = 3;
-    int runTime = 50; // ����
-    int chareTime = 10; // ���ʱ��
     DES location;
     void init(DES local);
-    std::vector<Task> bag;
-    void download();
 };
 
 #endif // CAR_H

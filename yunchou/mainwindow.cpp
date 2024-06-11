@@ -23,7 +23,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+// 初始化每一节点信息
 void MainWindow::initPos()
 {
     sendPosA.init(A);
@@ -37,7 +37,7 @@ void MainWindow::initPos()
     recPosI.init(I);
     updateTasknum();
 }
-
+// 按规则生成任务
 void MainWindow::generateTask()
 {
     sendPosA.regenerate();
@@ -45,7 +45,7 @@ void MainWindow::generateTask()
     sendPosC.regenerate();
     updateTasknum();
 }
-
+// 加载车辆配置
 void MainWindow::loadConfig()
 {
     cars.clear();
@@ -66,13 +66,14 @@ void MainWindow::loadConfig()
     }
     ui->totalNum->setText(QString("%1").arg(cars.size()).toLatin1());
 }
-
+// 进阶算法计算
+// 暂时无用
 void MainWindow::computeAdvancedAlgoTime()
 {
 //     ui->output1->setText(QString("%1").arg(i).toLatin1()); output123456 outputtotal
     ;
 }
-
+// 原始算法计算时间
 void MainWindow::computeOriginAlgoTime()
 {
     DES des_first;
@@ -295,6 +296,7 @@ void MainWindow::computeOriginAlgoTime()
                      ui->output3->text().toInt()   :  (ui->output1->text().toInt() > ui->output2->text().toInt() ? ui->output1->text().toInt() : ui->output2->text().toInt()));
         
 }
+// 保存已生成的任务
 void MainWindow::saveTask()
 {
     QSettings *configIniWrite = new QSettings(TO_FILE_PATH.c_str(), QSettings::IniFormat);
