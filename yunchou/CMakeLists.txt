@@ -5,7 +5,7 @@ project(yunchou VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-
+set(CMAKE_INSTALL_PREFIX C:/Qt/Qt-5.15.2/lib/cmake/Qt5)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -43,13 +43,11 @@ else()
     else()
         add_executable(yunchou
             ${PROJECT_SOURCES}
-            map.h
             task.h task.cpp
             worldModule.h
             sendpos.h sendpos.cpp
             pos.h pos.cpp
             car.h car.cpp
-            posmodule.h posmodule.cpp
             worldModule.cpp
 #            myDT.h
 #            search.cpp

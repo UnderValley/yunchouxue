@@ -366,7 +366,7 @@
      <x>0</x>
      <y>0</y>
      <width>876</width>
-     <height>28</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -375,18 +375,18 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>pushButton_3</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>generateTask()</slot>
+   <slot>saveTask()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>174</x>
-     <y>342</y>
+     <x>230</x>
+     <y>414</y>
     </hint>
     <hint type="destinationlabel">
-     <x>76</x>
-     <y>271</y>
+     <x>178</x>
+     <y>560</y>
     </hint>
    </hints>
   </connection>
@@ -407,22 +407,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_4</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>computeAdvancedAlgoTime()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>695</x>
-     <y>402</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>764</x>
-     <y>412</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_5</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -439,22 +423,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_3</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>saveTask()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>230</x>
-     <y>414</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>178</x>
-     <y>560</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_6</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -467,6 +435,38 @@
     <hint type="destinationlabel">
      <x>372</x>
      <y>560</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>computeAdvancedAlgoTime()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>695</x>
+     <y>402</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>764</x>
+     <y>412</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>generateTask()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>174</x>
+     <y>342</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>76</x>
+     <y>271</y>
     </hint>
    </hints>
   </connection>

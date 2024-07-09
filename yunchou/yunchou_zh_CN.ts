@@ -29,6 +29,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="79"/>
+        <source>加载车辆</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="97"/>
         <source>站点任务数</source>
         <translation type="unfinished"></translation>
@@ -51,26 +56,6 @@
     <message>
         <location filename="mainwindow.ui" line="181"/>
         <source>车数:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="312"/>
-        <source>站点2时间：</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="330"/>
-        <source>站点3时间：</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="359"/>
-        <source>读取任务</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="79"/>
-        <source>加载车辆</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -103,6 +88,21 @@
     <message>
         <location filename="mainwindow.ui" line="294"/>
         <source>站点1时间：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="312"/>
+        <source>站点2时间：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="330"/>
+        <source>站点3时间：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="359"/>
+        <source>读取任务</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
